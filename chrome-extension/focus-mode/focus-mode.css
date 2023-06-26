@@ -1,0 +1,17 @@
+body > .scaffold > :is(top-nav, navigation-rail, side-nav, footer), /* child combinator */
+main > :not(:last-child),
+main > :last-child > navigation-tree,
+main .toc-container { /* Descendant combinator */
+  display: none;
+}
+
+main > :last-child {
+  margin-top: min(10vmax, 10rem);
+  margin-bottom: min(10vmax, 10rem);
+}
+
+body {
+  -webkit-filter: invert(80%); 
+  filter: invert(80%); 
+  background: #202124 !important;
+}
