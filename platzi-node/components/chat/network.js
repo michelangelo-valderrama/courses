@@ -3,9 +3,9 @@ const response = require("../../network/response");
 const router = express.Router();
 const controller = require("./controller");
 
-router.get("/:userId", (req, res) => {
+router.get("/:id", (req, res) => {
   controller
-    .getChats()
+    .getChats(req.params.id)
     .then((data) => {
       response.success(req, res, data);
     })

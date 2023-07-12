@@ -1,18 +1,26 @@
 "use strict";
 
+const config = require("./config");
+
 const express = require("express");
-const bodyParser = require("body-parser");
 const app = express();
+const server = require("http").Server(app);
+const cors = require("cors");
+
+const bodyParser = require("body-parser");
+const socket = require("./socket");
 const db = require("./db");
 const router = require("./network/routes");
 
-db("mongodb+srv://Yoshi:yoshi@mydb.rk8laua.mongodb.net/?retryWrites=true&w=majority");
+db(config.dbUri);
 
+app.use(cors());
 app.use(express.json());
-app.use("/", express.static("public"));
+app.use(config.publicRoute, express.static("public"));
 
+socket.connect(server);
 router(app);
 
-app.listen(3000, () => {
-  console.log(`Server listening on http://localhost:3000`);
+server.listen(config.port, () => {
+  console.log(`Server listening on ${config.host}:${config.port}`);
 });

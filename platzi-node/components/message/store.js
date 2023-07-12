@@ -9,11 +9,20 @@ function addMessage(message) {
   myMessage.save();
 }
 
-function getMessage(filterUser) {
+function getMessage(filter) {
   return new Promise((res, rej) => {
-    const messages = Model.find(filterUser ? { user: filterUser } : {});
+    let filterMessages = {};
+
+    if (filter.chat) {
+      filterMessages.chat = filter.chat;
+    }
+    if (filter.user) {
+      filterMessages.user = filter.user;
+    }
+
+    const messages = Model.find(filterMessages);
     messages
-      .populate("user")
+      .populate(["chat", "user"])
       .then((data) => {
         res(data);
       })

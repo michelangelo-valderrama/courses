@@ -1,12 +1,20 @@
 "user strict";
 
 const express = require("express");
+const multer = require("multer");
 const response = require("../../network/response");
 const router = express.Router();
 const controller = require("./controller");
+const config = require("../../config");
+const upload = multer({
+  dest: `public/${config.filesRoute}/`,
+});
 
 router.get("/", (req, res) => {
-  const filterMessages = req.query.user || null;
+  const filterMessages = {
+    chat: req.query.chat || null,
+    user: req.query.user || null,
+  };
   controller
     .getMessage(filterMessages)
     .then((data) => {
@@ -17,9 +25,9 @@ router.get("/", (req, res) => {
     });
 });
 
-router.post("/", (req, res) => {
+router.post("/", upload.single("file"), (req, res) => {
   controller
-    .addMessage(req.body.user, req.body.message)
+    .addMessage(req.body.chat, req.body.user, req.body.message, req.file)
     .then((data) => {
       response.success(req, res, data, 201);
     })
@@ -54,7 +62,7 @@ router.delete("/:id", (req, res) => {
     })
     .catch((error) => {
       response.error(req, res, "Internal error", 500, error);
-    })
-})
+    });
+});
 
 module.exports = router;

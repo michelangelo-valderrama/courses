@@ -1,13 +1,12 @@
 const Model = require("./model");
 
-function getUsers() {
+function getUsers(usersId) {
   return new Promise((res, rej) => {
-    const users = Model.find();
+    const users = Model.find(usersId ? { users: usersId } : {});
     users
-    .populate("users")
-    .then((data) => {
-        console.log(data);
-        console.log("[got users]")
+      .populate("users")
+      .then((data) => {
+        console.log("[got users]");
         res(data);
       })
       .catch((error) => {
