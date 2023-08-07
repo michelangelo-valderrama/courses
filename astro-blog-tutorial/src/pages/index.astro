@@ -1,0 +1,12 @@
+---
+import { t, changeLanguage } from "i18next";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Greeting from "../components/Greeting.jsx";
+
+changeLanguage("es");
+---
+
+<BaseLayout pageTitle={t('homePage.title')}>
+  <h2>{t('homePage.subtitle')}</h2>
+  <Greeting client:load messages={['Hej', 'Hallo', 'Hola', 'Habari']} />
+</BaseLayout>

@@ -1,0 +1,18 @@
+---
+import i18n from 'i18next'
+import { Trans } from 'astro-i18next/components'
+import { LanguageSelector } from 'astro-i18next/components'
+import { localizePath } from "astro-i18next";
+
+const lang = i18n.language
+---
+
+<div class="nav-links">
+  <Trans i18nKey="navigation">
+    <a href={localizePath('/')}>Inicio</a>
+    <a href={localizePath('/sobre-mi')}>Sobre mi</a>
+    <a href={localizePath('/blog')}>Blog</a>
+    <a href={localizePath('/tags')}>Tags</a>
+  </Trans>
+  <LanguageSelector showFlag={true} />
+</div>

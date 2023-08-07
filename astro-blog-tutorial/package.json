@@ -1,0 +1,21 @@
+{
+  "name": "astro-blog-tutorial",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "generate": "npx astro-i18next generate",
+    "deploy": "firebase deploy",
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/preact": "^2.2.1",
+    "@astrojs/rss": "^2.4.3",
+    "astro": "^2.9.6",
+    "astro-i18next": "^1.0.0-beta.21",
+    "preact": "^10.16.0"
+  }
+}

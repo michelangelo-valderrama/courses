@@ -1,0 +1,20 @@
+---
+import { t, changeLanguage } from "i18next";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BlogPost from "../components/BlogPost.astro";
+
+changeLanguage("es");
+
+const allPosts = await Astro.glob("../pages/posts/*.md");
+---
+
+<BaseLayout pageTitle={t('blog.title')}>
+  <p>{t('blog.subtitle')}</p>
+  <ul>
+    {
+      allPosts.map((post) => (
+        <BlogPost url={post.url!} title={post.frontmatter.title} />
+      ))
+    }
+  </ul>
+</BaseLayout>

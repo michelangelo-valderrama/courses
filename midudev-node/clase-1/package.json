@@ -1,0 +1,21 @@
+{
+  "name": "midudev-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "4.fs-aync-await-parallel.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "picocolors": "1.0.0"
+  },
+  "eslintConfig": {
+    "extends": "standard"
+  },
+  "devDependencies": {
+    "standard": "^17.1.0"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "navigation": "<0>Home</0><1>About</1><2>Blog</2><3>Tags</3>",
+  "homePage": {
+    "title": "Home Page",
+    "subtitle": "My awesome blog subtitle"
+  },
+  "blog": {
+    "title": "My Astro Learning Blog",
+    "subtitle": "This is where I will post about my journey learning Astro."
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "... and my new Astro site!",
+    "body": "<0>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</0> <1>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</1>"
+  }
+}
